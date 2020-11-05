@@ -10,11 +10,13 @@ import {Product} from '../model.product';
 export class ProductComponent implements OnInit {
 
   productInfo:Product[];
+  flag:boolean=false;
   constructor(private productService:ProductService) { } //DI for ProductService
 
   ngOnInit(): void {
   }
   loadProduct():void{
+    this.flag=true;
     this.productService.loadProductDetails().subscribe(data=>this.productInfo=data);
   }
 
